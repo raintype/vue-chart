@@ -1,10 +1,8 @@
 <template>
-  <canvas id="lineChart"></canvas>
+  <canvas ref="lineChart" id="lineChart"></canvas>
 </template>
 
 <script>
-import Chart from 'chart.js';
-
 export default {
     mounted() {
         const labels = [
@@ -32,8 +30,9 @@ export default {
             options: {}
         };
 
-        const myChart = new Chart(
-            document.getElementById('lineChart'),
+        var chart = this.$refs.lineChart.getContext('2d');
+        const myChart = new this.$_Chart(
+            chart,
             config
         );
     }
